@@ -4,7 +4,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
   
 
-  if(localStorage.getItem('items') == null) {
+  if(!localStorage.getItem('items')) {
     
     fetch('https://fakestoreapi.com/products').then(response => response.json()).then(data => {
       myLocalStorage.setItem('items', JSON.stringify(data));
@@ -39,7 +39,7 @@ window.addEventListener('DOMContentLoaded', () => {
     for (let i = 0; i < products.length; i++) {
       let item = document.getElementById('product-list').appendChild(new ProductItem(products[i]));
       
-      for(key in product) {
+      for(key in products[i]) {
         item.setAttribute(key, products[i][key]);
       }
 
