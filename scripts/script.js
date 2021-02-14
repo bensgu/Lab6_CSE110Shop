@@ -11,17 +11,17 @@ window.addEventListener('DOMContentLoaded', () => {
       let products = JSON.parse(localStorage.getItem('items'));
 
       for(let i = 0; i < products.length; i++) {
-        let item = document.getElementById('product-list').appendChild(new ProductItem(product[i]));
+        let item = document.getElementById('product-list').appendChild(new ProductItem(products[i]));
         
-        for(key in product) {
+        for(key in products[i]) {
           item.setAttribute(key, products[i][key]);
         }
 
-        item.shadowRoot.querySelector('.heading').textContent = product.heading;
-        item.shadowRoot.querySelector('.price').textContent = product.price;
+        item.shadowRoot.querySelector('.heading').textContent = products[i].heading;
+        item.shadowRoot.querySelector('.price').textContent = products[i].price;
 
-        item.shadowRoot.querySelector('image').setAttribute('alt', product.heading);
-        item.shadowRoot.querySelector('image').setAttribute('src', product.image);
+        item.shadowRoot.querySelector('image').setAttribute('alt', products[i].heading);
+        item.shadowRoot.querySelector('image').setAttribute('src', products[i].image);
 
         if (localStorage.getItem(products[i].id) == 'true') {
           item.shadowRoot.querySelector('button').textContent = 'Remove from cart';
@@ -43,11 +43,11 @@ window.addEventListener('DOMContentLoaded', () => {
         item.setAttribute(key, products[i][key]);
       }
 
-      item.shadowRoot.querySelector('.title').textContent = product.title;
-      item.shadowRoot.querySelector('.price').textContent = product.price;
+      item.shadowRoot.querySelector('.title').textContent = products[i].title;
+      item.shadowRoot.querySelector('.price').textContent = products[i].price;
 
-      item.shadowRoot.querySelector('img').setAttribute('alt', product.title);
-      item.shadowRoot.querySelector('img').setAttribute('src', product.image);
+      item.shadowRoot.querySelector('img').setAttribute('alt', products[i].title);
+      item.shadowRoot.querySelector('img').setAttribute('src', products[i].image);
 
       if (localStorage.getItem(products[i].id) == 'true') {
         item.shadowRoot.querySelector('button').textContent = 'Remove from cart';
