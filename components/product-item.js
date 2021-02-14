@@ -10,6 +10,7 @@ class ProductItem extends HTMLElement {
     let element = document.createElement('link');
     element.setAttribute('href', './styles/styles.css');
     element.setAttribute('rel', 'stylesheet');
+    shadow.appendChild(element);
 
     let list = document.createElement('li');
     let img = list.appendChild(document.createElement('img'));
@@ -43,9 +44,7 @@ class ProductItem extends HTMLElement {
 
     });
 
-    
     shadow.appendChild(list);
-    shadow.appendChild(element);
 
   }
 

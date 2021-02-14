@@ -4,10 +4,10 @@ window.addEventListener('DOMContentLoaded', () => {
 
   
 
-  if(localStorage.getItem('0') == null) {
+  if(localStorage.getItem('items') == null) {
     
     fetch('https://fakestoreapi.com/products').then(response => response.json()).then(data => {
-      myLocalStorage.setItem('products', JSON.stringify(data));
+      myLocalStorage.setItem('items', JSON.stringify(data));
       let products = JSON.parse(localStorage.getItem('items'));
 
       for(let i = 0; i < products.length; i++) {
